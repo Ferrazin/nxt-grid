@@ -1,0 +1,5 @@
+export enum IssueType {
+  COMMUNICATION = 'COMMUNICATION',
+  CREDIT = 'CREDIT',
+  CONSUMPTION = 'CONSUMPTION',
+}

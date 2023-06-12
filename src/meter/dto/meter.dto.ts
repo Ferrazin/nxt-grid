@@ -2,7 +2,7 @@ export class MeterDTO {
   id: string;
   number: string;
   type: string;
-  full_name: string;
-  phone_number: string;
+  fullName: string;
+  phoneNumber: string;
   last_active_issue: string;
 }

@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { GridModule } from './grid/grid.module';
 import { CustomerModule } from './customer/customer.module';
 import { MeterModule } from './meter/meter.module';
@@ -24,7 +22,5 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
