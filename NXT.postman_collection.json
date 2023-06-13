@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "e1efce2e-0185-4766-98e9-27da59e38430",
+		"name": "NXT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get meters by grid ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/grid/2/meters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"grid",
+						"2",
+						"meters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a grid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Grida",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/grid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"grid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get meter by number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/meter/tr0gfykaxy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"meter",
+						"tr0gfykaxy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
