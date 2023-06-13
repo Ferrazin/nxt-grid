@@ -42,7 +42,7 @@ async function generateMockData() {
       // For each customer, create a few meters
       for (let k = 0; k < 5; k++) {
         const meter = new Meter();
-        meter.number = faker.random.alphaNumeric(10);
+        meter.number = faker.random.number({ min: 1, max: 1000000 });
         meter.type = faker.random.arrayElement([
           MeterType.FULL_SERVICE,
           MeterType.HIGH_PRIORITY_SERVICE,
@@ -58,7 +58,7 @@ async function generateMockData() {
             IssueType.CREDIT,
             IssueType.CONSUMPTION,
           ]);
-          issue.active = faker.random.boolean();
+          issue.createdAt = faker.date.past();
           issue.meter = meter;
           await issueRepository.save(issue);
         }

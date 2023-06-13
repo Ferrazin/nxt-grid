@@ -16,8 +16,8 @@ export class Issue {
   @Column()
   type: IssueType;
 
-  @Column()
-  active: boolean;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
   @ManyToOne((_) => Meter, (meter) => meter.issues)
   @JoinColumn({ name: 'meter_id' })

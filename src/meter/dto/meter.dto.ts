@@ -1,6 +1,6 @@
 export class MeterDTO {
   id: string;
-  number: string;
+  number;
   type: string;
   fullName: string;
   phoneNumber: string;

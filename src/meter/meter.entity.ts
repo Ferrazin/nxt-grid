@@ -16,7 +16,7 @@ export class Meter {
   id: number;
 
   @Column()
-  number: string;
+  number: number;
 
   @Column()
   type: MeterType;
