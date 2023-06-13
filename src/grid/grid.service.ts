@@ -1,3 +1,4 @@
+import { sortBy } from 'lodash';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -18,15 +19,18 @@ export class GridService {
       .createQueryBuilder('meter')
       .innerJoinAndSelect('meter.customer', 'customer')
       .innerJoin('customer.grid', 'grid')
-      .leftJoinAndSelect('meter.issues', 'issue', 'issue.active = :active', {
-        active: true,
-      })
+      .leftJoinAndSelect('meter.issues', 'issue')
       .where('grid.id = :gridId', { gridId });
 
     const meters = await query.getMany();
-    return meters;
-  }
 
+    return meters.map((meter) => ({
+      meterNumber: meter.number,
+      customerFullName: meter.customer.fullName,
+      customerPhoneNumber: meter.customer.phoneNumber,
+      issues: sortBy(meter.issues, 'createdAt').reverse()[0],
+    }));
+  }
   async createGrid(name: string) {
     const grid = this.gridRepository.create({ name });
     await this.gridRepository.save(grid);
