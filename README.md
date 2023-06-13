@@ -1,6 +1,6 @@
 ### NXT Grid - Nest Assignment
 
-RESTful API created using Nestjs and TypeORM. Developed using Postgres and Postman: collection available in this repository (NXT.postman_collection.json).
+RESTful API created using Nestjs and TypeORM. Developed using Postgres as DB and Postman for testing the queries. The Postman collection is available in this repository (NXT.postman_collection.json).
 
 # 1 - Generate test data
 Install ts-node or tool of choice for and use './mock-creator/create-mock.ts' file (might need some reconfiguration to write on your local DB).
