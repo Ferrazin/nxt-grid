@@ -1,14 +1,14 @@
-### NXT Grid - Nest Assignment
+# NXT Grid - Nest Assignment
 
 RESTful API created using Nestjs and TypeORM. Developed using Postgres as DB and Postman for testing the queries. The Postman collection is available in this repository (NXT.postman_collection.json).
 
-# 1 - Generate test data
+### 1 - Generate test data
 Install ts-node or tool of choice for and use './mock-creator/create-mock.ts' file (might need some reconfiguration to write on your local DB).
 
-# 2 - Query form grid ID 
+### 2 - Query form grid ID 
 From the endpoint [baseURL]:3000/grid/:id/meters, fetch all meters, their customers names and phone numbers, issues and issue type.
 
-# 3 - Query from meter number
+### 3 - Query from meter number
 From endpoint <baseUrl>:3000/meter/:number, fetch the meter with that specific meter number. This could be expanded, for instance to include a range rather than a specific number.
 
 ### NOTES
