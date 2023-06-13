@@ -14,14 +14,17 @@ export class GridService {
     private meterRepository: Repository<Meter>,
   ) {}
 
-  async getMeters(gridId: number) {
+  // Beware.... magic numbers ahead
+  async getMeters(gridId: number, page = 1, pageSize = 10) {
     const query = this.meterRepository
       .createQueryBuilder('meter')
       .innerJoinAndSelect('meter.customer', 'customer')
       .innerJoin('customer.grid', 'grid')
       .leftJoinAndSelect('meter.issues', 'issue')
       .where('grid.id = :gridId', { gridId })
-      .orderBy('meter.number', 'ASC');
+      .orderBy('meter.number', 'ASC')
+      .skip((page - 1) * pageSize)
+      .take(pageSize);
 
     const meters = await query.getMany();
 
