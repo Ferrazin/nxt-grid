@@ -14,15 +14,24 @@ export class GridService {
     private meterRepository: Repository<Meter>,
   ) {}
 
-  // Beware.... magic numbers ahead
-  async getMeters(gridId: number, page = 1, pageSize = 10) {
+  async getMeters(
+    gridId: number,
+    page = 1,
+    pageSize = 10,
+    sort = 'meter.number',
+    order = 'ASC',
+  ) {
+    if (order !== 'ASC' && order !== 'DESC') {
+      throw new Error(`Invalid order value: ${order}`);
+    }
+
     const query = this.meterRepository
       .createQueryBuilder('meter')
       .innerJoinAndSelect('meter.customer', 'customer')
       .innerJoin('customer.grid', 'grid')
       .leftJoinAndSelect('meter.issues', 'issue')
       .where('grid.id = :gridId', { gridId })
-      .orderBy('meter.number', 'ASC')
+      .orderBy(sort, order)
       .skip((page - 1) * pageSize)
       .take(pageSize);
 

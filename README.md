@@ -4,4 +4,6 @@
 
 2. Use the DB to retrieve the latest issue instead of using JS
 
-3. 
+3. Add pagination & sorting metadata to the response
+
+4. Add validation for pagination in request
