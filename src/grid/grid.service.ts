@@ -20,7 +20,8 @@ export class GridService {
       .innerJoinAndSelect('meter.customer', 'customer')
       .innerJoin('customer.grid', 'grid')
       .leftJoinAndSelect('meter.issues', 'issue')
-      .where('grid.id = :gridId', { gridId });
+      .where('grid.id = :gridId', { gridId })
+      .orderBy('meter.number', 'ASC');
 
     const meters = await query.getMany();
 
